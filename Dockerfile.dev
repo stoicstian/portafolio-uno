@@ -1,0 +1,32 @@
+# pull official base image
+FROM python:3.8.6-alpine
+
+# Metadata info owner
+LABEL autor=sebastian email=gutierrezgsebastian@outlook.com
+
+# prevents python from writing pyc files to disc
+ENV PYTHONDONTWRITEBYTECODE 1
+# prevents python from buffering stdout and stderr
+ENV PYTHONUNBUFFERED 1
+
+# install psycopg2 dependencies
+RUN apk update \ 
+    apk add vim\
+    && apk add postgresql-dev gcc python3-dev musl-dev
+
+# create workdir
+RUN mkdir -p /code/usr/src/app/
+WORKDIR /code/usr/src/app
+
+# copy entrypoint.sh
+COPY ./backend/entrypoint.dev.sh /code/usr/src/app/
+
+# install dependencies and pipenv packages
+RUN pip install --upgrade pip && pip install pipenv
+
+# copy project
+COPY ./backend/Pipfile ./backend/Pipfile.lock /code/usr/src/app/
+
+RUN pipenv install --deploy --ignore-pipfile
+
+ENTRYPOINT ["/code/usr/src/app/entrypoint.dev.sh"]

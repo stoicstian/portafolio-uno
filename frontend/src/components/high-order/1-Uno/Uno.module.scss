@@ -1,0 +1,46 @@
+@use "./sass/colors";
+@use "./sass/fonts";
+
+@mixin push($valor) {
+  transform: $valor;
+}
+
+/* CLASES */
+.contenedor {
+  font-family: fonts.$fuente-familia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+.header {
+  min-width: 375px;
+  max-width: 500px;
+  text-align: center;
+  margin: 50px auto;
+
+  &__titulo-claro {
+    width: 375px;
+    font-size: 1.9rem;
+    font-weight: 200;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    color: colors.$azul-muy-oscuro;
+  }
+
+  &__titulo-oscuro {
+    font-weight: 600;
+    color: black;
+  }
+
+  &__descripcion {
+    color: colors.$azul-grisaceo;
+  }
+}
+
+.tarjetas {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1140px;
+  margin: 0 auto;
+}

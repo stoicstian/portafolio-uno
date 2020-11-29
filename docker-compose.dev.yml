@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:12.4-alpine
+    restart: always
+    ports:
+      - 6543:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./backend/.env.dev.db
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: pipenv run python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend/:/code/usr/src/app/
+    ports:
+      - 8000:8000
+    # define a file for environment variables
+    env_file:
+      - ./backend/.env.dev
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
