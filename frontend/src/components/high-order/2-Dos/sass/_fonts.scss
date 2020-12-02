@@ -1,0 +1,13 @@
+@use "fontsource-josefin-sans";
+// @use "../../../../../node_modules/fontsource-josefin-sans/index.css";
+// @import "~fontsource-josefin-sans";
+// @import "fontsource-josefin-sans/400.css";
+// @import "fontsource-josefin-sans/600.css";
+
+$font-family: "Josefin Sans";
+
+$fonts-weights: (
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+);
