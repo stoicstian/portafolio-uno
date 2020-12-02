@@ -12,7 +12,7 @@ function Layout(): JSX.Element {
   return (
     <Fragment>
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="/">Portafolio</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -20,8 +20,11 @@ function Layout(): JSX.Element {
             {/* <Nav.Link href="/jugadores">Jugadores</Nav.Link> */}
             <NavDropdown title="Proyectos" id="basic-nav-dropdown">
               <Dropdown.Header>Fácil</Dropdown.Header>
-              <NavDropdown.Item href="proyectos/uno">
+              <NavDropdown.Item href="/proyectos/uno">
                 1. Four Card Feature Section
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/proyectos/dos">
+                2. Base Appeal Coming Soon Master
               </NavDropdown.Item>
               <NavDropdown.Divider></NavDropdown.Divider>
 
