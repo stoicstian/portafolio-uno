@@ -13,7 +13,6 @@ ENV PYTHONUNBUFFERED 1
 RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev
 
-
 # create workdir
 RUN mkdir -p /code/usr/src/app/
 WORKDIR /code/usr/src/app

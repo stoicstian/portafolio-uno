@@ -20,7 +20,7 @@ RUN apk update \
 RUN pip install --upgrade pip
 
 # install dependencies
-COPY ./requirements.txt .
+COPY ./backend/requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
 
 #########
@@ -49,10 +49,10 @@ RUN mkdir $APP_HOME/mediafiles
 WORKDIR $APP_HOME
 
 # copy entrypoint-prod.sh
-COPY ./app/entrypoint.prod.sh $APP_HOME
+COPY ./backend/entrypoint.prod.sh $APP_HOME
 
 # copy project
-COPY ./app/ $APP_HOME
+COPY ./backend/ $APP_HOME
 
 # install dependencies
 RUN apk update && apk add libpq

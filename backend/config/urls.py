@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include, urls
+from django.urls import path, include
 
 # router = routers.DefaultRouter()
 # router.register(r"users", views.UserViewSet)
@@ -7,8 +7,8 @@ from django.urls import path, include, urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("blog.urls", namespaces="blog")),
-    path("api", include("api.urls"), namespaces="api")
+    path("", include("blog.urls", namespace="blog")),
+    path("api", include("api.urls", namespace="api"))
     # path("", include(router.urls)),
     # path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
